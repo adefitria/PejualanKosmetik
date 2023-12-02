@@ -20,7 +20,6 @@ object FormPembelian: TFormPembelian
     Width = 761
     Height = 489
     Brush.Color = clMenuHighlight
-    OnContextPopup = shp1ContextPopup
   end
   object lbl1: TLabel
     Left = 304
@@ -221,7 +220,6 @@ object FormPembelian: TFormPembelian
     ControlsCodePage = cGET_ACP
     UTF8StringsAsWideField = False
     AutoEncodeStrings = False
-    Connected = True
     HostName = 'localhost'
     Port = 3306
     Database = 'penjualankosmetik'
@@ -233,7 +231,6 @@ object FormPembelian: TFormPembelian
   end
   object zqry1: TZQuery
     Connection = ZConnection1
-    Active = True
     SQL.Strings = (
       'select*from tabel_pembelian')
     Params = <>

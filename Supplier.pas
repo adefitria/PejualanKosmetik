@@ -16,7 +16,7 @@ type
     lbl4: TLabel;
     Edtnama: TEdit;
     Edtalamat: TEdit;
-    Edtkota: TEdit;
+    Edtnotelp: TEdit;
     bbaru: TButton;
     bsimpan: TButton;
     bedit: TButton;
@@ -58,18 +58,14 @@ procedure TFormSupplier.edtbersih;
 begin
 Edtnama.Clear;
 Edtalamat.Clear;
-Edtkota.Clear;
-Edtnohp.Clear;
-Edtperusahaan.Clear;
+Edtnotelp.Clear;
 end;
 
 procedure TFormSupplier.edtenable;
 begin
 Edtnama.Enabled:= True;
 Edtalamat.Enabled:= True;
-Edtkota.Enabled:= True;
-Edtnohp.Enabled:= True;
-Edtperusahaan.Enabled:= True;
+Edtnotelp.Enabled:= True;
 end;
 
 procedure TFormSupplier.posisiawal;
@@ -77,9 +73,8 @@ begin
 edtbersih;
 Edtnama.Enabled:= False;
 Edtalamat.Enabled:= False;
-Edtkota.Enabled:= False;
-Edtnohp.Enabled:= False;
-Edtperusahaan.Enabled:= False;
+Edtnotelp.Enabled:= False;
+
 
 bbaru.Enabled:=True;
 bsimpan.Enabled:= False;
@@ -111,17 +106,17 @@ end;
 
 procedure TFormSupplier.bsimpanClick(Sender: TObject);
 begin
-  if (Edtnama.Text='') or (Edtalamat.Text='') or (Edtkota.Text='') or (Edtnohp.Text='') or (Edtperusahaan.Text='') then
+  if (Edtnama.Text='') or (Edtalamat.Text='') or (Edtnotelp.Text='') then
   begin
     ShowMessage('DATA TIDAK BOLEH KOSONG!');
   end else
   begin
   zqry1.SQL.Clear;
-  zqry1.SQL.Add('insert into tb_supplier values (null,"'+Edtnama.Text+'","'+Edtalamat.Text+'","'+Edtkota.Text+'","'+Edtnohp.Text+'","'+Edtperusahaan.Text+'")');
+  zqry1.SQL.Add('insert into tabel_supplier values (null,"'+Edtnama.Text+'","'+Edtalamat.Text+'","'+Edtnotelp.Text+'")');
   zqry1.ExecSQL;
 
   zqry1.SQL.Clear;
-  zqry1.SQL.Add('select*from tb_supplier');
+  zqry1.SQL.Add('select*from tabel_supplier');
   zqry1.Open;
   ShowMessage('DATA BERHASIL DISIMPAN');
   posisiawal;
@@ -142,21 +137,19 @@ bbatal.Enabled:= True;
 
 Edtnama.Text:= zqry1.FieldList[1].AsString;
 Edtalamat.Text := zqry1.FieldList[2].AsString;
-Edtkota.Text:= zqry1.FieldList[3].AsString;
-Edtnohp.Text:= zqry1.FieldList[4].AsString;
-Edtperusahaan.Text:= zqry1.FieldList[5].AsString;
+Edtnotelp.Text:= zqry1.FieldList[4].AsString;
 end;
 
 procedure TFormSupplier.bhapusClick(Sender: TObject);
 begin
 if MessageDlg('APAKAH YAKIN MENGHAPUS DATA INI?',mtWarning,[mbYes,mbNo],0)= mryes then
 begin
-id:=dbgrd1.DataSource.DataSet.FieldByName('id').AsString;
+id:=DBGrid1.DataSource.DataSet.FieldByName('id').AsString;
 zqry1.SQL.Clear;
-zqry1.SQL.Add(' delete from tb_supplier where id="'+id+'"');
+zqry1.SQL.Add(' delete from tabel_supplier where id="'+id+'"');
 zqry1.ExecSQL;
 zqry1.SQL.Clear;
-zqry1.SQL.Add('select * from tb_supplier');
+zqry1.SQL.Add('select * from tabel_supplier');
 zqry1.Open;
 ShowMessage('DATA BERHASIL DIHAPUS');
 posisiawal;
@@ -171,23 +164,23 @@ end;
 
 procedure TFormSupplier.beditClick(Sender: TObject);
 begin
-  if (Edtnama.Text='') or (Edtalamat.Text='') or (Edtkota.Text='') or (Edtnohp.Text='') or (Edtperusahaan.Text='') then
+  if (Edtnama.Text='') or (Edtalamat.Text='') or (Edtnotelp.Text='') then
   begin
     ShowMessage('DATA TIDAK BOLEH KOSONG!');
   end else
-    if (Edtnama.Text = zqry1.FieldList[1].AsString) and (Edtalamat.Text = zqry1.FieldList[2].AsString) AND (Edtkota.Text = zqry1.FieldList[3].AsString) and (Edtnohp.Text = zqry1.FieldList[4].AsString) and (Edtperusahaan.Text = zqry1.FieldList[5].AsString) then
+    if (Edtnama.Text = zqry1.FieldList[1].AsString) and (Edtalamat.Text = zqry1.FieldList[2].AsString) and (Edtnotelp.Text = zqry1.FieldList[4].AsString) then
   begin
     ShowMessage('DATA TIDAK ADA PERUBAHAN');
     posisiawal;
   end else
   begin
-    id:=dbgrd1.DataSource.DataSet.FieldByName('id').AsString;
+    id:=DBGrid1.DataSource.DataSet.FieldByName('id').AsString;
   ShowMessage('DATA BERHASIL DI UPDATE!');
   zqry1.SQL.Clear;
-  zqry1.SQL.Add('Update tb_supplier set nama_supplier="'+Edtnama.Text+'", alamat="'+Edtalamat.Text+'", kota_asal="'+Edtkota.Text+'", no_hp="'+Edtnohp.Text+'", perusahaan_asal="'+Edtperusahaan.Text+'" where id="'+id+'"');
+  zqry1.SQL.Add('Update tabel_supplier set nama_supplier="'+Edtnama.Text+'", alamat="'+Edtalamat.Text+'", no_telp="'+Edtnotelp.Text+'" where id="'+id+'"');
   zqry1.ExecSQL;
   zqry1.SQL.Clear;
-  zqry1.SQL.Add('select*from tb_supplier');
+  zqry1.SQL.Add('select*from tabel_supplier');
   zqry1.Open;
   posisiawal;
   end;

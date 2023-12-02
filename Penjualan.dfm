@@ -1,6 +1,6 @@
 object FormPenjualan: TFormPenjualan
-  Left = 294
-  Top = 127
+  Left = 843
+  Top = 175
   Width = 789
   Height = 540
   Caption = 'FormPenjualan'
@@ -118,7 +118,7 @@ object FormPenjualan: TFormPenjualan
     ParentFont = False
     Transparent = True
   end
-  object Edtjumlah: TEdit
+  object Edttotal: TEdit
     Left = 451
     Top = 39
     Width = 161
@@ -179,7 +179,7 @@ object FormPenjualan: TFormPenjualan
     TabOrder = 6
     OnClick = bhapusClick
   end
-  object Edttotal: TEdit
+  object Edtnotransaksi: TEdit
     Left = 174
     Top = 129
     Width = 146
@@ -188,7 +188,7 @@ object FormPenjualan: TFormPenjualan
   end
   object dtp1: TDateTimePicker
     Left = 173
-    Top = 35
+    Top = 27
     Width = 148
     Height = 21
     Date = 45262.446850370370000000
@@ -211,7 +211,7 @@ object FormPenjualan: TFormPenjualan
     ItemHeight = 13
     TabOrder = 10
   end
-  object ComboBox1: TComboBox
+  object cbb3: TComboBox
     Left = 455
     Top = 75
     Width = 154
@@ -235,7 +235,6 @@ object FormPenjualan: TFormPenjualan
     ControlsCodePage = cGET_ACP
     UTF8StringsAsWideField = False
     AutoEncodeStrings = False
-    Connected = True
     HostName = 'localhost'
     Port = 3306
     Database = 'penjualankosmetik'
@@ -247,7 +246,6 @@ object FormPenjualan: TFormPenjualan
   end
   object zqry1: TZQuery
     Connection = ZConnection1
-    Active = True
     SQL.Strings = (
       'select*from tabel_penjualan')
     Params = <>

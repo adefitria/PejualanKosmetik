@@ -14,7 +14,7 @@ type
     lbl1: TLabel;
     lbl2: TLabel;
     lbl4: TLabel;
-    Edtdeskripsi: TEdit;
+    Edtdesc: TEdit;
     Edtjumlah: TEdit;
     bbaru: TButton;
     bsimpan: TButton;
@@ -29,8 +29,8 @@ type
     frxdbdtst1: TfrxDBDataset;
     cbb1: TComboBox;
     zqry2: TZQuery;
-    Edit1: TEdit;
-    Edit2: TEdit;
+    Edtstatus: TEdit;
+    Edtharga: TEdit;
     Label1: TLabel;
     Label2: TLabel;
     DBGrid1: TDBGrid;
@@ -61,23 +61,29 @@ implementation
 
 procedure TFormStok.edtbersih;
 begin
-Edtdeskripsi.Clear;
+Edtdesc.Clear;
 Edtjumlah.Clear;
+Edtharga.Clear;
+Edtstatus.Clear;
 end;
 
 procedure TFormStok.edtenable;
 begin
 cbb1.Enabled:= True;
-Edtdeskripsi.Enabled:= True;
+Edtdesc.Enabled:= True;
 Edtjumlah.Enabled:= True;
+Edtharga.Enabled:= True;
+Edtstatus.Enabled:= True;
 end;
 
 procedure TFormStok.posisiawal;
 begin
 edtbersih;
 cbb1.Enabled:= False;
-Edtdeskripsi.Enabled:= False;
+Edtdesc.Enabled:= False;
 Edtjumlah.Enabled:= False;
+Edtharga.Enabled:= False;
+Edtstatus.Enabled:= False;
 
 bbaru.Enabled:=True;
 bsimpan.Enabled:= False;
@@ -91,10 +97,10 @@ procedure TFormStok.FormShow(Sender: TObject);
 begin
 posisiawal;
 
-// Menampilkan barang_id ke dalam ComboBox
+// Menampilkan id_barang ke dalam ComboBox
 cbb1.Items.Clear;
 zqry2.SQL.Clear;
-zqry2.SQL.Add('SELECT id FROM tbl_barang');
+zqry2.SQL.Add('SELECT id FROM tabel_barang');
 zqry2.Open;
 
 while not zqry2.Eof do
@@ -108,12 +114,12 @@ zqry2.Close;
 
 // Menampilkan data dari tabel stok
 zqry1.SQL.Clear;
-zqry1.SQL.Add('SELECT * FROM tbl_stok');
+zqry1.SQL.Add('SELECT * FROM tabel_stok');
 zqry1.Open;
 
 // Menghubungkan tabel peminjaman dengan DataSource
 ds1.DataSet := zqry1;
-dbgrd1.DataSource := ds1;
+DBGrid1.DataSource := ds1;
 
 end;
 
@@ -135,17 +141,17 @@ end;
 
 procedure TFormStok.bsimpanClick(Sender: TObject);
 begin
-  if (Edtdeskripsi.Text='') or (Edtjumlah.Text='') then
+  if (Edtdesc.Text='') or (Edtjumlah.Text='') or (Edtharga.Text='')or (Edtstatus.Text='')then
   begin
     ShowMessage('DATA TIDAK BOLEH KOSONG!');
   end else
   begin
   zqry1.SQL.Clear;
-  zqry1.SQL.Add('insert into tbl_stok values (null,"'+cbb1.Text+'","'+Edtdeskripsi.Text+'","'+Edtjumlah.Text+'")');
+  zqry1.SQL.Add('insert into tabel_stok values (null,"'+cbb1.Text+'","'+Edtdesc.Text+'","'+Edtjumlah.Text+'","'+Edtharga.Text+'","'+Edtstatus.Text+'")');
   zqry1.ExecSQL;
 
   zqry1.SQL.Clear;
-  zqry1.SQL.Add('select*from tbl_stok');
+  zqry1.SQL.Add('select*from tabel_stok');
   zqry1.Open;
   ShowMessage('DATA BERHASIL DISIMPAN');
   posisiawal;
@@ -165,20 +171,22 @@ bhapus.Enabled:= True;
 bbatal.Enabled:= True;
 
 cbb1.Text:= zqry1.FieldList[1].AsString;
-Edtdeskripsi.Text:= zqry1.FieldList[2].AsString;
+Edtdesc.Text:= zqry1.FieldList[2].AsString;
 Edtjumlah.Text:= zqry1.FieldList[3].AsString;
+Edtharga.Text:= zqry1.FieldList[3].AsString;
+Edtstatus.Text:= zqry1.FieldList[3].AsString;
 end;
 
 procedure TFormStok.bhapusClick(Sender: TObject);
 begin
 if MessageDlg('APAKAH YAKIN MENGHAPUS DATA INI?',mtWarning,[mbYes,mbNo],0)= mryes then
 begin
-id:=dbgrd1.DataSource.DataSet.FieldByName('id').AsString;
+id:=DBGrid1.DataSource.DataSet.FieldByName('id').AsString;
 zqry1.SQL.Clear;
-zqry1.SQL.Add(' delete from tbl_stok where id="'+id+'"');
+zqry1.SQL.Add(' delete from tabel_stok where id="'+id+'"');
 zqry1.ExecSQL;
 zqry1.SQL.Clear;
-zqry1.SQL.Add('select * from tbl_stok');
+zqry1.SQL.Add('select * from tabel_stok');
 zqry1.Open;
 ShowMessage('DATA BERHASIL DIHAPUS');
 posisiawal;
@@ -192,23 +200,23 @@ end;
 
 procedure TFormStok.beditClick(Sender: TObject);
 begin
-  if (Edtdeskripsi.Text='') or (Edtjumlah.Text='') then
+  if (Edtdesc.Text='') or (Edtjumlah.Text='') or (Edtharga.Text='')or (Edtstatus.Text='')then
   begin
     ShowMessage('DATA TIDAK BOLEH KOSONG!');
   end else
-    if (Edtdeskripsi.Text = zqry1.FieldList[1].AsString) and (Edtjumlah.Text = zqry1.FieldList[2].AsString) then
+    if (Edtdesc.Text = zqry1.FieldList[1].AsString) and (Edtjumlah.Text = zqry1.FieldList[2].AsString) and (Edtharga.Text = zqry1.FieldList[3].AsString)and (Edtstatus.Text = zqry1.FieldList[4].AsString)then
   begin
     ShowMessage('DATA TIDAK ADA PERUBAHAN');
     posisiawal;
   end else
   begin
-    id:=dbgrd1.DataSource.DataSet.FieldByName('id').AsString;
+    id:=DBGrid1.DataSource.DataSet.FieldByName('id').AsString;
   ShowMessage('DATA BERHASIL DI UPDATE!');
   zqry1.SQL.Clear;
-  zqry1.SQL.Add('Update tbl_stok set barang_id="'+cbb1.Text+'", descripsi="'+Edtdeskripsi.Text+'", jumlah="'+Edtjumlah.Text+'" where id="'+id+'"');
+  zqry1.SQL.Add('Update tabel_stok set id_barang="'+cbb1.Text+'", desc="'+Edtdesc.Text+'", jumlah="'+Edtjumlah.Text+'" where id="'+id+'", harga="'+Edtharga.Text+'" where id="'+id+'", status="'+Edtstatus.Text+'" where id="'+id+'"');
   zqry1.ExecSQL;
   zqry1.SQL.Clear;
-  zqry1.SQL.Add('select*from tbl_stok');
+  zqry1.SQL.Add('select*from tabel_stok');
   zqry1.Open;
   posisiawal;
   end;

@@ -1,6 +1,6 @@
 object FormBarang: TFormBarang
-  Left = 349
-  Top = 147
+  Left = 320
+  Top = 195
   Width = 801
   Height = 540
   Caption = 'FormBarang'
@@ -16,7 +16,7 @@ object FormBarang: TFormBarang
   TextHeight = 13
   object shp1: TShape
     Left = 0
-    Top = 0
+    Top = -16
     Width = 785
     Height = 505
     Brush.Color = clHighlight
@@ -133,35 +133,35 @@ object FormBarang: TFormBarang
     ParentFont = False
     Transparent = True
   end
-  object Edtbarcode: TEdit
+  object Edtidbarang: TEdit
     Left = 175
     Top = 31
     Width = 145
     Height = 21
     TabOrder = 0
   end
-  object Edtnama: TEdit
+  object Edtnamabarang: TEdit
     Left = 175
     Top = 63
     Width = 145
     Height = 21
     TabOrder = 1
   end
-  object Edtjumlah: TEdit
+  object Edtdescbarang: TEdit
     Left = 175
     Top = 95
     Width = 145
     Height = 21
     TabOrder = 2
   end
-  object Edttype: TEdit
+  object Edtstok: TEdit
     Left = 451
     Top = 31
     Width = 161
     Height = 21
     TabOrder = 3
   end
-  object Edtukuran: TEdit
+  object Edtmerek: TEdit
     Left = 452
     Top = 63
     Width = 161
@@ -222,7 +222,7 @@ object FormBarang: TFormBarang
     TabOrder = 10
     OnClick = bhapusClick
   end
-  object Edtrak: TEdit
+  object Edttglexpired: TEdit
     Left = 454
     Top = 96
     Width = 161
@@ -260,7 +260,6 @@ object FormBarang: TFormBarang
     ControlsCodePage = cGET_ACP
     UTF8StringsAsWideField = False
     AutoEncodeStrings = False
-    Connected = True
     HostName = 'localhost'
     Port = 3306
     Database = 'penjualankosmetik'
@@ -272,7 +271,6 @@ object FormBarang: TFormBarang
   end
   object zqry1: TZQuery
     Connection = ZConnection1
-    Active = True
     SQL.Strings = (
       'select*from tabel_barang')
     Params = <>

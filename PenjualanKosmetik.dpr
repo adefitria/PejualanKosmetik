@@ -11,9 +11,7 @@ uses
 
 begin
   Application.Initialize;
-  Application.CreateForm(TFormLogin, FormLogin);
   Application.CreateForm(TFormMenu, FormMenu);
-  Application.CreateForm(TFormUser, FormUser);
   Application.CreateForm(TFormSupplier, FormSupplier);
   Application.CreateForm(TFormKustomer, FormKustomer);
   Application.CreateForm(TFormBarang, FormBarang);

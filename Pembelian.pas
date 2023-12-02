@@ -47,8 +47,7 @@ type
     procedure bhapusClick(Sender: TObject);
     procedure beditClick(Sender: TObject);
     procedure bprintClick(Sender: TObject);
-    
-      var Handled: Boolean);
+
   private
     { Private declarations }
   public
@@ -122,7 +121,7 @@ zqry1.Open;
 
 // Menghubungkan tabel pembelian dengan DataSource
 ds1.DataSet := zqry1;
-dbgrd1.DataSource := ds1;
+DBGrid1.DataSource := ds1;
 
 end;
 
@@ -184,7 +183,7 @@ procedure TFormPembelian.bhapusClick(Sender: TObject);
 begin
 if MessageDlg('APAKAH YAKIN MENGHAPUS DATA INI?',mtWarning,[mbYes,mbNo],0)= mryes then
 begin
-id:=dbgrd1.DataSource.DataSet.FieldByName('id').AsString;
+id:=DBGrid1.DataSource.DataSet.FieldByName('id').AsString;
 zqry1.SQL.Clear;
 zqry1.SQL.Add(' delete from tbl_pembelian where id="'+id+'"');
 zqry1.ExecSQL;
@@ -214,7 +213,7 @@ begin
     posisiawal;
   end else
   begin
-    id:=dbgrd1.DataSource.DataSet.FieldByName('id').AsString;
+    id:=DBGrid1.DataSource.DataSet.FieldByName('id').AsString;
   ShowMessage('DATA BERHASIL DI UPDATE!');
   zqry1.SQL.Clear;
   zqry1.SQL.Add('Update tbl_pembelian set suppplier_id="'+cbb1.Text+'", tanggal="'+FormatDateTime('yyyy-mm-dd', dtp1.Date)+'", qty="'+Edtqty.Text+'", harga="'+Edtharga.Text+'", jumlah_bayar="'+Edtjumlah.Text+'" where id="'+id+'"');

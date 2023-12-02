@@ -1,6 +1,6 @@
 object FormStok: TFormStok
-  Left = 438
-  Top = 174
+  Left = 411
+  Top = 372
   Width = 800
   Height = 540
   Caption = 'FormStok'
@@ -19,7 +19,7 @@ object FormStok: TFormStok
     Top = -8
     Width = 809
     Height = 505
-    Brush.Color = clHotLight
+    Brush.Color = clHighlight
   end
   object lbl1: TLabel
     Left = 24
@@ -91,7 +91,7 @@ object FormStok: TFormStok
     ParentFont = False
     Transparent = True
   end
-  object Edtdeskripsi: TEdit
+  object Edtdesc: TEdit
     Left = 175
     Top = 63
     Width = 145
@@ -167,14 +167,14 @@ object FormStok: TFormStok
     ItemHeight = 13
     TabOrder = 8
   end
-  object Edit1: TEdit
+  object Edtstatus: TEdit
     Left = 447
     Top = 63
     Width = 145
     Height = 21
     TabOrder = 9
   end
-  object Edit2: TEdit
+  object Edtharga: TEdit
     Left = 447
     Top = 31
     Width = 145
@@ -197,7 +197,6 @@ object FormStok: TFormStok
     ControlsCodePage = cGET_ACP
     UTF8StringsAsWideField = False
     AutoEncodeStrings = False
-    Connected = True
     HostName = 'localhost'
     Port = 3306
     Database = 'penjualankosmetik'
@@ -209,7 +208,6 @@ object FormStok: TFormStok
   end
   object zqry1: TZQuery
     Connection = ZConnection1
-    Active = True
     SQL.Strings = (
       'select*from tabel_stok')
     Params = <>
@@ -528,7 +526,6 @@ object FormStok: TFormStok
   end
   object zqry2: TZQuery
     Connection = ZConnection1
-    Active = True
     SQL.Strings = (
       'select*from tabel_barang')
     Params = <>

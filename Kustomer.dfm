@@ -1,6 +1,6 @@
 object FormKustomer: TFormKustomer
-  Left = 326
-  Top = 121
+  Left = 31
+  Top = 214
   Width = 795
   Height = 540
   Caption = 'FormKustomer'
@@ -105,7 +105,7 @@ object FormKustomer: TFormKustomer
     Height = 21
     TabOrder = 1
   end
-  object Edtjk: TEdit
+  object Edtkota: TEdit
     Left = 175
     Top = 95
     Width = 145
@@ -119,7 +119,7 @@ object FormKustomer: TFormKustomer
     Height = 21
     TabOrder = 3
   end
-  object Edtkota: TEdit
+  object Edtnotelp: TEdit
     Left = 176
     Top = 159
     Width = 145
@@ -197,7 +197,6 @@ object FormKustomer: TFormKustomer
     ControlsCodePage = cGET_ACP
     UTF8StringsAsWideField = False
     AutoEncodeStrings = False
-    Connected = True
     HostName = 'localhost'
     Port = 3306
     Database = 'penjualankosmetik'
@@ -209,7 +208,6 @@ object FormKustomer: TFormKustomer
   end
   object zqry1: TZQuery
     Connection = ZConnection1
-    Active = True
     SQL.Strings = (
       'select*from tabel_kustomer')
     Params = <>

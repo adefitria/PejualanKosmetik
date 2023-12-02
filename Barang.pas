@@ -17,18 +17,17 @@ type
     lbl5: TLabel;
     lbl7: TLabel;
     lbl3: TLabel;
-    Edtbarcode: TEdit;
-    Edtnama: TEdit;
-    Edtjumlah: TEdit;
-    Edttype: TEdit;
-    Edtukuran: TEdit;
+    Edtidbarang: TEdit;
+    Edtdescbarang: TEdit;
+    Edtstok: TEdit;
+    Edtmerek: TEdit;
     bbaru: TButton;
     bsimpan: TButton;
     bedit: TButton;
     bprint: TButton;
     bbatal: TButton;
     bhapus: TButton;
-    Edtrak: TEdit;
+    Edttglexpired: TEdit;
     ZConnection1: TZConnection;
     zqry1: TZQuery;
     ds1: TDataSource;
@@ -39,6 +38,7 @@ type
     Edtjual: TEdit;
     Edtbeli: TEdit;
     DBGrid1: TDBGrid;
+    Edtnamabarang: TEdit;
     procedure edtbersih;
     procedure edtenable;
     procedure posisiawal;
@@ -68,42 +68,39 @@ implementation
 
 procedure TFormBarang.edtbersih;
 begin
-Edtbarcode.Clear;
-Edtnama.Clear;
-Edtjumlah.Clear;
+Edtidbarang.Clear;
+Edtnamabarang.Clear;
+Edtdescbarang.Clear;
 Edtjual.Clear;
 Edtbeli.Clear;
-Edttype.Clear;
-Edtukuran.Clear;
-Edtrak.Clear;
-Edttahun.Clear;
+Edtstok.Clear;
+Edtmerek.Clear;
+Edttglexpired.Clear;
 end;
 
 procedure TFormBarang.edtenable;
 begin
-Edtbarcode.Enabled:= True;
-Edtnama.Enabled:= True;
-Edtjumlah.Enabled:= True;
+Edtidbarang.Enabled:= True;
+Edtnamabarang.Enabled:= True;
+Edtdescbarang.Enabled:= True;
 Edtjual.Enabled:= True;
 Edtbeli.Enabled:= True;
-Edttype.Enabled:= True;
-Edtukuran.Enabled:= True;
-Edtrak.Enabled:= True;
-Edttahun.Enabled:= True;
+Edtstok.Enabled:= True;
+Edtmerek.Enabled:= True;
+Edttglexpired.Enabled:= True;
 end;
 
 procedure TFormBarang.posisiawal;
 begin
 edtbersih;
-Edtbarcode.Enabled:= False;
-Edtnama.Enabled:= False;
-Edtjumlah.Enabled:= False;
+Edtidbarang.Enabled:= False;
+Edtnamabarang.Enabled:= False;
+Edtdescbarang.Enabled:= False;
 Edtjual.Enabled:= False;
 Edtbeli.Enabled:= False;
-Edttype.Enabled:= False;
-Edtukuran.Enabled:= False;
-Edtrak.Enabled:= False;
-Edttahun.Enabled:= False;
+Edtstok.Enabled:= False;
+Edtmerek.Enabled:= False;
+Edttglexpired.Enabled:= False;
 
 bbaru.Enabled:=True;
 bsimpan.Enabled:= False;
@@ -135,17 +132,17 @@ end;
 
 procedure TFormBarang.bsimpanClick(Sender: TObject);
 begin
-  if (Edtbarcode.Text='') or (Edtnama.Text='') or (Edtjumlah.Text='') or (Edtjual.Text='') or (Edtbeli.Text='') or (Edttype.Text='') or (Edtukuran.Text='') or (Edtrak.Text='') or (Edttahun.Text='') then
+  if (Edtidbarang.Text='') or (Edtnamabarang.Text='') or (Edtdescbarang.Text='') or (Edtjual.Text='') or (Edtbeli.Text='') or (Edtstok.Text='') or (Edtmerek.Text='') or (Edttglexpired.Text='') then
   begin
     ShowMessage('DATA TIDAK BOLEH KOSONG!');
   end else
   begin
   zqry1.SQL.Clear;
-  zqry1.SQL.Add('insert into tbl_barang values (null,"'+Edtbarcode.Text+'","'+Edtnama.Text+'","'+Edtjumlah.Text+'","'+Edtjual.Text+'","'+Edtbeli.Text+'","'+Edttype.Text+'","'+Edtukuran.Text+'","'+Edtrak.Text+'","'+Edttahun.Text+'")');
+  zqry1.SQL.Add('insert into tabel_barang values (null,"'+Edtidbarang.Text+'","'+Edtnamabarang.Text+'","'+Edtdescbarang.Text+'","'+Edtjual.Text+'","'+Edtbeli.Text+'","'+Edtstok.Text+'","'+Edtmerek.Text+'","'+Edttglexpired.Text+'")');
   zqry1.ExecSQL;
 
   zqry1.SQL.Clear;
-  zqry1.SQL.Add('select*from tbl_barang');
+  zqry1.SQL.Add('select*from tabel_barang');
   zqry1.Open;
   ShowMessage('DATA BERHASIL DISIMPAN');
   posisiawal;
@@ -164,27 +161,26 @@ bedit.Enabled:= True;
 bhapus.Enabled:= True;
 bbatal.Enabled:= True;
 
-Edtbarcode.Text:= zqry1.FieldList[1].AsString;
-Edtnama.Text := zqry1.FieldList[2].AsString;
-Edtjumlah.Text:= zqry1.FieldList[3].AsString;
+Edtidbarang.Text:= zqry1.FieldList[1].AsString;
+Edtnamabarang.Text := zqry1.FieldList[2].AsString;
+Edtdescbarang.Text:= zqry1.FieldList[3].AsString;
 Edtjual.Text:= zqry1.FieldList[4].AsString;
 Edtbeli.Text:= zqry1.FieldList[5].AsString;
-Edttype.Text:= zqry1.FieldList[6].AsString;
-Edtukuran.Text := zqry1.FieldList[7].AsString;
-Edtrak.Text:= zqry1.FieldList[8].AsString;
-Edttahun.Text:= zqry1.FieldList[9].AsString;
+Edtstok.Text:= zqry1.FieldList[6].AsString;
+Edtmerek.Text := zqry1.FieldList[7].AsString;
+Edttglexpired.Text:= zqry1.FieldList[8].AsString;
 end;
 
 procedure TFormBarang.bhapusClick(Sender: TObject);
 begin
 if MessageDlg('APAKAH YAKIN MENGHAPUS DATA INI?',mtWarning,[mbYes,mbNo],0)= mryes then
 begin
-id:=dbgrd1.DataSource.DataSet.FieldByName('id').AsString;
+id:=DBGrid1.DataSource.DataSet.FieldByName('id').AsString;
 zqry1.SQL.Clear;
-zqry1.SQL.Add(' delete from tbl_barang where id="'+id+'"');
+zqry1.SQL.Add(' delete from tabel_barang where id="'+id+'"');
 zqry1.ExecSQL;
 zqry1.SQL.Clear;
-zqry1.SQL.Add('select * from tbl_barang');
+zqry1.SQL.Add('select * from tabel_barang');
 zqry1.Open;
 ShowMessage('DATA BERHASIL DIHAPUS');
 posisiawal;
@@ -199,23 +195,23 @@ end;
 
 procedure TFormBarang.beditClick(Sender: TObject);
 begin
-  if (Edtbarcode.Text='') or (Edtnama.Text='') or (Edtjumlah.Text='') or (Edtjual.Text='') or (Edtbeli.Text='') or (Edttype.Text='') or (Edtukuran.Text='') or (Edtrak.Text='') or (Edttahun.Text='') then
+  if (Edtidbarang.Text='') or (Edtnamabarang.Text='') or (Edtdescbarang.Text='') or (Edtjual.Text='') or (Edtbeli.Text='') or (Edtstok.Text='') or (Edtmerek.Text='') or (Edttglexpired.Text='') then
   begin
     ShowMessage('DATA TIDAK BOLEH KOSONG!');
   end else
-    if (Edtbarcode.Text = zqry1.FieldList[1].AsString) and (Edtnama.Text = zqry1.FieldList[2].AsString) AND (Edtjumlah.Text = zqry1.FieldList[3].AsString) and (Edtjual.Text = zqry1.FieldList[4].AsString) and (Edtbeli.Text = zqry1.FieldList[5].AsString) AND (Edttype.Text = zqry1.FieldList[6].AsString) and (Edtukuran.Text = zqry1.FieldList[7].AsString) and (Edtrak.Text = zqry1.FieldList[8].AsString) and (Edttahun.Text = zqry1.FieldList[9].AsString) then
+    if (Edtidbarang.Text = zqry1.FieldList[1].AsString) and (Edtnamabarang.Text = zqry1.FieldList[2].AsString) AND (Edtdescbarang.Text = zqry1.FieldList[3].AsString) and (Edtjual.Text = zqry1.FieldList[4].AsString) and (Edtbeli.Text = zqry1.FieldList[5].AsString) AND (Edtstok.Text = zqry1.FieldList[6].AsString) and (Edtmerek.Text = zqry1.FieldList[7].AsString) and (Edttglexpired.Text = zqry1.FieldList[8].AsString) then
   begin
     ShowMessage('DATA TIDAK ADA PERUBAHAN');
     posisiawal;
   end else
   begin
-    id:=dbgrd1.DataSource.DataSet.FieldByName('id').AsString;
+    id:=DBGrid1.DataSource.DataSet.FieldByName('id').AsString;
   ShowMessage('DATA BERHASIL DI UPDATE!');
   zqry1.SQL.Clear;
-  zqry1.SQL.Add('Update tbl_barang set barcode="'+Edtbarcode.Text+'", nama_barang="'+Edtnama.Text+'", jumlah_stok="'+Edtjumlah.Text+'", harga_jual="'+Edtjual.Text+'", harga_beli="'+Edtbeli.Text+'", type_hp="'+Edttype.Text+'", ukuran_hp="'+Edtukuran.Text+'", rak="'+Edtrak.Text+'", tahun="'+Edttahun.Text+'" where id="'+id+'"');
+  zqry1.SQL.Add('Update tabel_barang set id_barang="'+Edtidbarang.Text+'", nama_barang="'+Edtnamabarang.Text+'", desc_barang="'+Edtdescbarang.Text+'", harga_jual="'+Edtjual.Text+'", harga_beli="'+Edtbeli.Text+'", stok="'+Edtstok.Text+'", merek="'+Edtmerek.Text+'", tgl_expired="'+Edttglexpired.Text+'"where id="'+id+'"');
   zqry1.ExecSQL;
   zqry1.SQL.Clear;
-  zqry1.SQL.Add('select*from tbl_barang');
+  zqry1.SQL.Add('select*from tabel_barang');
   zqry1.Open;
   posisiawal;
   end;
