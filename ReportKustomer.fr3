@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TfrxReport Version="4.12.6" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="4095" PreviewOptions.Zoom="1" PrintOptions.Printer="Default" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="45259,9586385417" ReportOptions.Description.Text="" ReportOptions.LastChange="45262,450851875" ScriptLanguage="PascalScript" ScriptText.Text="begin&#13;&#10;&#13;&#10;end." PropData="044C65667403A00103546F70024008446174617365747301010C3100000020446174615365743D22667278646264747374312220446174615365744E616D653D2266727844424461746173657431220000095661726961626C65730100055374796C650100">
+  <TfrxDataPage Name="Data" Height="1000" Left="0" Top="0" Width="1000"/>
+  <TfrxReportPage Name="Page1" Orientation="poLandscape" PaperWidth="297" PaperHeight="210" PaperSize="9" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" ColumnWidth="0" ColumnPositions.Text="" HGuides.Text="" VGuides.Text="">
+    <TfrxReportTitle Name="ReportTitle1" Height="45,35436" Left="0" Top="18,89765" Width="1046,92981">
+      <TfrxMemoView Name="Memo1" Left="389,29159" Top="11,33859" Width="287,24428" Height="18,89765" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-16" Font.Name="Arial" Font.Style="1" ParentFont="False" Text="LAPORAN DATA KUSTOMER"/>
+    </TfrxReportTitle>
+    <TfrxPageHeader Name="PageHeader1" Height="34,01577" Left="0" Top="86,92919" Width="1046,92981">
+      <TfrxMemoView Name="Memo3" Left="71,81107" Top="3,77953" Width="56,69295" Height="30,23624" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="15" Frame.Width="2" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="ID"/>
+      <TfrxMemoView Name="Memo4" Left="128,50402" Top="3,77953" Width="120,94496" Height="30,23624" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="15" Frame.Width="2" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="Nama Kustomer"/>
+      <TfrxMemoView Name="Memo5" Left="249,44898" Top="3,77953" Width="204,09462" Height="30,23624" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="15" Frame.Width="2" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="Alamat"/>
+      <TfrxMemoView Name="Memo7" Left="619,84292" Top="3,77953" Width="136,06308" Height="30,23624" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="15" Frame.Width="2" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="Kode Pos"/>
+      <TfrxMemoView Name="Memo8" Left="453,5436" Top="3,77953" Width="166,29932" Height="30,23624" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="15" Frame.Width="2" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="Kota"/>
+      <TfrxMemoView Name="Memo9" Left="755,906" Top="3,77953" Width="166,29932" Height="30,23624" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="15" Frame.Width="2" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="No Telp"/>
+    </TfrxPageHeader>
+    <TfrxFooter Name="Footer1" Height="37,7953" Left="0" Top="257,00804" Width="1046,92981">
+      <TfrxMemoView Name="Memo18" Left="608,50433" Top="11,33859" Width="147,40167" Height="18,89765" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="15" Frame.Width="2" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="TOTAL DATA USER :"/>
+      <TfrxMemoView Name="Memo19" Left="755,906" Top="11,33859" Width="94,48825" Height="18,89765" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="15" Frame.Width="2" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="[COUNT(MasterData1)]"/>
+    </TfrxFooter>
+    <TfrxMasterData Name="MasterData1" Height="52,91342" Left="0" Top="181,41744" Width="1046,92981" ColumnWidth="0" ColumnGap="0" DataSet="frxdbdtst1" DataSetName="frxDBDataset1" RowCount="0">
+      <TfrxMemoView Name="frxDBDataset1id_kustomer" Left="75,5906" Top="0" Width="52,91342" Height="18,89765" ShowHint="False" DataField="id_kustomer" DataSet="frxdbdtst1" DataSetName="frxDBDataset1" Text="[frxDBDataset1.&#34;id_kustomer&#34;]"/>
+      <TfrxMemoView Name="frxDBDataset1nama_kustomer" Left="128,50402" Top="0" Width="120,94496" Height="18,89765" ShowHint="False" DataField="nama_kustomer" DataSet="frxdbdtst1" DataSetName="frxDBDataset1" Text="[frxDBDataset1.&#34;nama_kustomer&#34;]"/>
+      <TfrxMemoView Name="frxDBDataset1alamat" Left="249,44898" Top="0" Width="207,87415" Height="18,89765" ShowHint="False" DataField="alamat" DataSet="frxdbdtst1" DataSetName="frxDBDataset1" Text="[frxDBDataset1.&#34;alamat&#34;]"/>
+      <TfrxMemoView Name="frxDBDataset1kota" Left="457,32313" Top="0" Width="162,51979" Height="18,89765" ShowHint="False" DataField="kota" DataSet="frxdbdtst1" DataSetName="frxDBDataset1" Text="[frxDBDataset1.&#34;kota&#34;]"/>
+      <TfrxMemoView Name="frxDBDataset1kode_pos" Left="619,84292" Top="0" Width="132,28355" Height="18,89765" ShowHint="False" DataField="kode_pos" DataSet="frxdbdtst1" DataSetName="frxDBDataset1" Text="[frxDBDataset1.&#34;kode_pos&#34;]"/>
+      <TfrxMemoView Name="frxDBDataset1no_telp" Left="755,906" Top="0" Width="120,94496" Height="18,89765" ShowHint="False" DataField="no_telp" DataSet="frxdbdtst1" DataSetName="frxDBDataset1" Text="[frxDBDataset1.&#34;no_telp&#34;]"/>
+    </TfrxMasterData>
+  </TfrxReportPage>
+</TfrxReport>
