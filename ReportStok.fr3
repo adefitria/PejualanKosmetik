@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TfrxReport Version="4.12.6" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="4095" PreviewOptions.Zoom="1" PrintOptions.Printer="Default" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="45259,9586385417" ReportOptions.Description.Text="" ReportOptions.LastChange="45262,4757994444" ScriptLanguage="PascalScript" ScriptText.Text="begin&#13;&#10;&#13;&#10;end." PropData="044C65667403280203546F70026008446174617365747301010C3100000020446174615365743D22667278646264747374312220446174615365744E616D653D2266727844424461746173657431220000095661726961626C65730100055374796C650100">
+  <TfrxDataPage Name="Data" Height="1000" Left="0" Top="0" Width="1000"/>
+  <TfrxReportPage Name="Page1" Orientation="poLandscape" PaperWidth="297" PaperHeight="210" PaperSize="9" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" ColumnWidth="0" ColumnPositions.Text="" HGuides.Text="" VGuides.Text="">
+    <TfrxReportTitle Name="ReportTitle1" Height="45,35436" Left="0" Top="18,89765" Width="1046,92981">
+      <TfrxMemoView Name="Memo1" Left="362,83488" Top="11,33859" Width="215,43321" Height="18,89765" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-16" Font.Name="Arial" Font.Style="1" ParentFont="False" Text="LAPORAN DATA STOK"/>
+    </TfrxReportTitle>
+    <TfrxPageHeader Name="PageHeader1" Height="34,01577" Left="0" Top="86,92919" Width="1046,92981">
+      <TfrxMemoView Name="Memo3" Left="71,81107" Top="3,77953" Width="71,81107" Height="30,23624" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="15" Frame.Width="2" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="ID STOK"/>
+      <TfrxMemoView Name="Memo4" Left="143,62214" Top="3,77953" Width="83,14966" Height="30,23624" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="15" Frame.Width="2" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="ID BARANG"/>
+      <TfrxMemoView Name="Memo5" Left="226,7718" Top="3,77953" Width="188,9765" Height="30,23624" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="15" Frame.Width="2" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="DESC"/>
+      <TfrxMemoView Name="Memo6" Left="415,7483" Top="3,77953" Width="136,06308" Height="30,23624" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="15" Frame.Width="2" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="JUMLAH"/>
+      <TfrxMemoView Name="Memo2" Left="551,81138" Top="3,77953" Width="136,06308" Height="30,23624" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="15" Frame.Width="2" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="HARGA"/>
+      <TfrxMemoView Name="Memo7" Left="687,87446" Top="3,77953" Width="136,06308" Height="30,23624" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="15" Frame.Width="2" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="STATUS"/>
+    </TfrxPageHeader>
+    <TfrxFooter Name="Footer1" Height="37,7953" Left="0" Top="260,78757" Width="1046,92981">
+      <TfrxMemoView Name="Memo18" Left="498,89796" Top="3,77953" Width="147,40167" Height="18,89765" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="15" Frame.Width="2" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="TOTAL DATA STOK:"/>
+      <TfrxMemoView Name="Memo19" Left="646,29963" Top="3,77953" Width="94,48825" Height="18,89765" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="15" Frame.Width="2" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="[COUNT(MasterData1)]"/>
+    </TfrxFooter>
+    <TfrxMasterData Name="MasterData1" Height="56,69295" Left="0" Top="181,41744" Width="1046,92981" ColumnWidth="0" ColumnGap="0" DataSet="frxdbdtst1" DataSetName="frxDBDataset1" RowCount="0">
+      <TfrxMemoView Name="frxDBDataset1id_stok" Left="71,81107" Top="0" Width="71,81107" Height="18,89765" ShowHint="False" DataField="id_stok" DataSet="frxdbdtst1" DataSetName="frxDBDataset1" Text="[frxDBDataset1.&#34;id_stok&#34;]"/>
+      <TfrxMemoView Name="frxDBDataset1id_barang" Left="143,62214" Top="0" Width="79,37013" Height="18,89765" ShowHint="False" DataField="id_barang" DataSet="frxdbdtst1" DataSetName="frxDBDataset1" Text="[frxDBDataset1.&#34;id_barang&#34;]"/>
+      <TfrxMemoView Name="frxDBDataset1desc" Left="226,7718" Top="0" Width="188,9765" Height="18,89765" ShowHint="False" DataField="desc" DataSet="frxdbdtst1" DataSetName="frxDBDataset1" Text="[frxDBDataset1.&#34;desc&#34;]"/>
+      <TfrxMemoView Name="frxDBDataset1jumlah" Left="415,7483" Top="0" Width="136,06308" Height="18,89765" ShowHint="False" DataField="jumlah" DataSet="frxdbdtst1" DataSetName="frxDBDataset1" Text="[frxDBDataset1.&#34;jumlah&#34;]"/>
+      <TfrxMemoView Name="frxDBDataset1harga" Left="551,81138" Top="0" Width="136,06308" Height="18,89765" ShowHint="False" DataField="harga" DataSet="frxdbdtst1" DataSetName="frxDBDataset1" Text="[frxDBDataset1.&#34;harga&#34;]"/>
+      <TfrxMemoView Name="frxDBDataset1status" Left="687,87446" Top="0" Width="136,06308" Height="18,89765" ShowHint="False" DataField="status" DataSet="frxdbdtst1" DataSetName="frxDBDataset1" Text="[frxDBDataset1.&#34;status&#34;]"/>
+    </TfrxMasterData>
+  </TfrxReportPage>
+</TfrxReport>
